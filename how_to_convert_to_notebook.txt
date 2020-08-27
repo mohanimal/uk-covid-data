@@ -1,0 +1,2 @@
+pip install jupytext
+jupytext --to notebook Read_API.py
