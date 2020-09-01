@@ -740,6 +740,10 @@ def pull_all_data():
     lower_tier_local_authority_data()
     upper_tier_local_authority_data()
 
+def nhs_region_admissions():
+    "https://api.coronavirus-staging.data.gov.uk/v1/data?filters=areaType=nation&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newAdmissions%22:%22newAdmissions%22,%22cumAdmissions%22:%22cumAdmissions%22%7D&format=json"
+    pass
+
 
 if __name__ == '__main__':
 
