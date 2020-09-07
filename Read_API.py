@@ -709,20 +709,20 @@ def combine_dataframes(AREA_TYPE,WRITE=False):
         # print(data)
         data_you_need = data_you_need.append(data, ignore_index=True)
         if WRITE == True:
-            data_you_need.to_excel(f"data/{AREA_TYPE}/_{AREA_TYPE}_COMBINED_out_data.xlsx",
+            data_you_need.to_excel(f"data/{AREA_TYPE}/combined/_{AREA_TYPE}_COMBINED_out_data.xlsx",
                             index=False)
     print(f"Data for {AREA_TYPE} combined")
     return data_you_need
 
 def spread_dataframe_columns(AREA_TYPE,WRITE=False):
-    df = pd.read_excel(f'data/{AREA_TYPE}/_{AREA_TYPE}_COMBINED_out_data.xlsx')
+    df = pd.read_excel(f'data/{AREA_TYPE}/combined/_{AREA_TYPE}_COMBINED_out_data.xlsx')
     spread_df = df.pivot(index='date',columns='areaName',values='newCasesBySpecimenDate')
     print(spread_df.head(), spread_df.tail() ) # some QA
     if WRITE==True:
-        spread_df.to_excel(f"data/{AREA_TYPE}/_{AREA_TYPE}_SPREAD_out_data.xlsx",
+        spread_df.to_excel(f"data/{AREA_TYPE}/spread/_{AREA_TYPE}_SPREAD_out_data.xlsx",
                            index=True)
         print(f'{AREA_TYPE} combined with spread columns file written')
-        print(f'Filepath : data/{AREA_TYPE}/_{AREA_TYPE}_SPREAD_out_data.xlsx')
+        print(f'Filepath : data/{AREA_TYPE}/spread/_{AREA_TYPE}_SPREAD_out_data.xlsx')
 
 def combine_all_data():
     AREA_TYPE_LIST = ["region",
@@ -741,8 +741,8 @@ def pull_all_data():
 
 if __name__ == '__main__':
 
-    region_data()
-    combine_dataframes("region",WRITE=True)
+    # region_data()
+    # combine_dataframes("region",WRITE=True)
     spread_dataframe_columns("region",WRITE=True)
 
     exit()
