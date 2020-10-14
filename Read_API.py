@@ -741,8 +741,8 @@ def pull_all_data():
 
 if __name__ == '__main__':
 
-    # region_data()
-    # combine_dataframes("region",WRITE=True)
+    region_data()
+    combine_dataframes("region",WRITE=True)
     spread_dataframe_columns("region",WRITE=True)
 
     exit()
